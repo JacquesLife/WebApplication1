@@ -1,0 +1,20 @@
+﻿
+@model WebApplication1.Models.UserTable
+@{
+    ViewData["Title"] = "About";
+}
+<div class="container">
+    <div class="text-container" style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border: 2px solid #000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <div class="text-center text-black">
+            <h1 class="text-dark">@ViewData["Title"]</h1>
+            <p class="text-dark">Sign up to recieve emails on our latest and greatest prouducts</p>
+            <form action="About" method="post">
+                <p class="text-dark">Please enter your email here</p>
+                <input type="text" name="Name" placeholder="Name" required>
+                <input type="text" name="Surname" placeholder="Surname" required>
+                <input type="text" name="Email" placeholder="Email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
