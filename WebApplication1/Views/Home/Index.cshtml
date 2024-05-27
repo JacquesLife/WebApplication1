@@ -1,30 +1,88 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var userID = ViewData["userID"];
+    var products = ViewData["products"] as List<WebApplication1.Models.ProductTable>;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - KhumaloCraft</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="text-container" style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border: 2px solid #000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-            <div class="text-center text-black">
-                <h1 class="display-4">Home </h1>
-                <p>KhumaloCraft is a leather goods comapany founded by James Khumalo whos goal is to provide the worlds finest leather goods. We custom make goods personally for you or you can shop our range of bags, belts and shoes.</p>
-            </div>
+<div class="container">
+    <div class="text-container">
+        <div class="text-center text-black">
+            <h2>All Products</h2>
+
+            @if (products != null && products.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Availability</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in products)
+                        {
+                            <tr>
+                                <td>@product.Name</td>
+                                <td>@product.Price</td>
+                                <td>@product.Category</td>
+                                <td>@product.Availability</td>
+                                <td>
+                                    <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                                        <input type="hidden" name="userID" value="@userID" />
+                                        <input type="hidden" name="productID" value="@product.ProductID" />
+                                        <button type="submit">Place Order</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+        </div>
+    </div>
+    <div class="text-container mt-1">
+        <div class="text-center text-black">
+            <h2>My Products</h2>
             <div class="row">
-                <div class="col-md-4 mx-auto"> 
+                <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="https://i0.wp.com/www.fineleatherworking.com/wp-content/uploads/2018/06/leather-goods-makers-e1546399655502.jpg?fit=1024%2C555&ssl=1" class="card-img-top" alt="Leather Goods">
+                        <img src="~/images/LeatherBag.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Leather Bag</h5>
+                            <p class="card-text">Description: Handcrafted bag made with genuine leather</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="~/images/LeatherShoes.jpg" class="card-img-top" alt="Image 2">
+                        <div class="card-body">
+                            <h5 class="card-title
+                            ">Leather Shoes</h5>
+                            <p class="card-text">Description: Hand made leather shoes with black stichting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="~/images/LeatherBelts.jpg" class="card-img-top" alt="Image 3">
+                        <div class="card-body">
+                            <h5 class="card-title
+                            ">Leather Belt</h5>
+                            <p class="card-text">Description: Genuine leather belt with a stainless steel buckle</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>

@@ -1,13 +1,9 @@
-﻿
-@model WebApplication1.Models.UserTable
-@{
-    ViewData["Title"] = "About";
-}
-<div class="container">
-    <div class="text-container" style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border: 2px solid #000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+﻿<div class="container">
+    <div class="text-container">
         <div class="text-center text-black">
             <h1 class="text-dark">@ViewData["Title"]</h1>
-            <p class="text-dark">Sign up to recieve emails on our latest and greatest prouducts</p>
+            <h1 class="display-4">Sign Up</h1>
+            <p class="text-dark">Sign up to receive emails on our latest and greatest products</p>
             <form action="About" method="post">
                 <p class="text-dark">Please enter your email here</p>
                 <input type="text" name="Name" placeholder="Name" required>
@@ -15,6 +11,54 @@
                 <input type="text" name="Email" placeholder="Email" required>
                 <button type="submit">Submit</button>
             </form>
+        </div>
+        <div class="faqs mt-5">
+            <h2 class="text-dark">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is KhumaloCraft?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            KhumaloCraft is an online platform that provides a marketplace for artisans to showcase and sell their handcrafted products. We aim to connect talented artisans with customers who appreciate unique, high-quality products.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                How can I sell my products on KhumaloCraft?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            To sell your products on KhumaloCraft, you can create an account and list your products on our platform. Once your products are approved, they will be visible to customers who can purchase them directly from you.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                How can I contact customer support?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            If you have any questions or need assistance, you can contact our customer support team by emailing Support@KhumaloCraft or calling 1-800-123-4567.
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more FAQs here -->
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,61 @@
+@using Microsoft.EntityFrameworkCore.Storage
+@using WebApplication1.Models
+@model WebApplication1.Models.ProductTable
+@{
+    ViewData["Title"] = "MyWork";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - KhumaloCraft</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-container">
+            <div class="text-center text-black">
+                <h1 class="display-4">Welcome</h1>
+                <p>We aim to create masterful handcrafted products with love and care</p>
+                <!-- Images of products -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <figure>
+                            <img src="~/images/LeatherBag.jpg" alt="product" class="img-fluid product-image">
+                            <figcaption>Handcrafted Leather Backpack -R4000</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-4">
+                        <figure>
+                            <img src="~/images/LeatherShoes.jpg" alt="product" class="img-fluid product-image">
+                            <figcaption>Leather Dress Shoes -R999</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-4">
+                        <figure>
+                            <img src="~/images/LeatherBelts.jpg" alt="product" class="img-fluid product-image">
+                            <figcaption>Leather Belts- R599 </figcaption>
+                        </figure> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-container">
+            <h1>Please share your work</h1>
+            <form action="/Product/Work" method="post">
+            <p>Insert your products here and we will display your crafts on the website</p>
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="text" name="Price" placeholder="Price" required>
+            <input type="text" name="Category" placeholder="Category" required>
+            <input type="text" name="Availability" placeholder="Availability" required>
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
